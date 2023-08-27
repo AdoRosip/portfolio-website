@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Portfolio</title>
+  </head>
+
+  <body>
+    <div class="nav-bar" id="navBar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <section id="home" class="segment">
+      <div class="home-left">
+        <div class="hello">
+          <div class="line"></div>
+          <p id="hello">Hello,</p>
+        </div>
+        <p class="name-para">I'm <span id="name">Adrian</span> Rosipal</p>
+        <p id="intro-text">
+          I'm a junior software developer with a passion for everything front
+          end. Welcome to my small corner of the internet.
+        </p>
+        <div class="tech-stack-container">
+          <p id="tech-stack-para">Tech Stack</p>
+          <ul class="tech-stack">
+            <li data-hover-src="./images/js-color.png">
+              <img src="./images/js.png" alt="JavaScript icon" />
+            </li>
+            <li data-hover-src="./images/ts-col.png">
+              <img src="./images/ts.png" alt="TypeScript icon" />
+            </li>
+            <li data-hover-src="./images/html-col.png">
+              <img src="./images/html.png" alt="html icon" />
+            </li>
+            <li data-hover-src="./images/css-col.png">
+              <img src="./images/css.png" alt="css icon" />
+            </li>
+            <li data-hover-src="./images/tw-color.png">
+              <img src="./images/tw-col.png" alt="tailwind icon" />
+            </li>
+            <li data-hover-src="./images/react-col.png">
+              <img src="./images/react.png" alt="react icon" />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="home-right">
+        <img
+          id="profile-image"
+          src="./images/XEV00269-removebg-preview.png"
+          alt="Your image"
+        />
+      </div>
+
+      <div class="vertical-text">
+        Scroll Down
+        <div class="arrow">&#8595;</div>
+      </div>
+    </section>
+
+    <section id="about" class="segment">
+      <div class="about-me-segment">
+        <div class="about-pic">
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="study">
+              <rect width="64" height="64" />
+              <g id="smoke">
+                <path
+                  id="smoke-2"
+                  d="M9 21L9.55279 19.8944C9.83431 19.3314 9.83431 18.6686 9.55279 18.1056L9 17L8.44721 15.8944C8.16569 15.3314 8.16569 14.6686 8.44721 14.1056L9 13"
+                  stroke="#797270"
+                />
+                <path
+                  id="smoke-1"
+                  d="M6.5 22L7.05279 20.8944C7.33431 20.3314 7.33431 19.6686 7.05279 19.1056L6.5 18L5.94721 16.8944C5.66569 16.3314 5.66569 15.6686 5.94721 15.1056L6.5 14"
+                  stroke="#797270"
+                />
+              </g>
+              <g id="laptop">
+                <rect
+                  id="laptop-base"
+                  x="17"
+                  y="28"
+                  width="20"
+                  height="3"
+                  fill="#F3F3F3"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="laptop-screen"
+                  x="18"
+                  y="17"
+                  width="18"
+                  height="11"
+                  fill="#5A524E"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="line-1"
+                  x="20"
+                  y="19"
+                  width="14"
+                  height="1"
+                  fill="#F78764"
+                />
+                <rect
+                  id="line-2"
+                  x="20"
+                  y="21"
+                  width="14"
+                  height="1"
+                  fill="#F9AB82"
+                />
+                <rect
+                  id="line-3"
+                  x="20"
+                  y="23"
+                  width="14"
+                  height="1"
+                  fill="#F78764"
+                />
+                <rect
+                  id="line-4"
+                  x="20"
+                  y="25"
+                  width="14"
+                  height="1"
+                  fill="#F9AB82"
+                />
+              </g>
+              <g id="cup">
+                <rect
+                  id="Rectangle 978"
+                  x="5"
+                  y="24"
+                  width="5"
+                  height="7"
+                  fill="#CCC4C4"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <path
+                  id="Ellipse 416"
+                  d="M11 28C12.1046 28 13 27.1046 13 26C13 24.8954 12.1046 24 11 24"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 996"
+                  x="6"
+                  y="25"
+                  width="3"
+                  height="1"
+                  fill="#D6D2D1"
+                />
+              </g>
+              <g id="books">
+                <rect
+                  id="Rectangle 984"
+                  x="58"
+                  y="27"
+                  width="4"
+                  height="14"
+                  transform="rotate(90 58 27)"
+                  fill="#B16B4F"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 985"
+                  x="56"
+                  y="23"
+                  width="4"
+                  height="14"
+                  transform="rotate(90 56 23)"
+                  fill="#797270"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 986"
+                  x="60"
+                  y="19"
+                  width="4"
+                  height="14"
+                  transform="rotate(90 60 19)"
+                  fill="#F78764"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 993"
+                  x="47"
+                  y="20"
+                  width="12"
+                  height="1"
+                  fill="#F9AB82"
+                />
+                <rect
+                  id="Rectangle 994"
+                  x="43"
+                  y="24"
+                  width="12"
+                  height="1"
+                  fill="#54504E"
+                />
+                <rect
+                  id="Rectangle 995"
+                  x="45"
+                  y="28"
+                  width="12"
+                  height="1"
+                  fill="#804D39"
+                />
+              </g>
+              <g id="desk">
+                <rect
+                  id="Rectangle 973"
+                  x="4"
+                  y="31"
+                  width="56"
+                  height="5"
+                  fill="#797270"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 987"
+                  x="10"
+                  y="36"
+                  width="30"
+                  height="6"
+                  fill="#797270"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 975"
+                  x="6"
+                  y="36"
+                  width="4"
+                  height="24"
+                  fill="#797270"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 974"
+                  x="40"
+                  y="36"
+                  width="18"
+                  height="24"
+                  fill="#797270"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <line
+                  id="Line 129"
+                  x1="40"
+                  y1="48"
+                  x2="58"
+                  y2="48"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <line
+                  id="Line 130"
+                  x1="22"
+                  y1="39"
+                  x2="28"
+                  y2="39"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <line
+                  id="Line 142"
+                  x1="46"
+                  y1="42"
+                  x2="52"
+                  y2="42"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <line
+                  id="Line 131"
+                  x1="46"
+                  y1="54"
+                  x2="52"
+                  y2="54"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+                <rect
+                  id="Rectangle 988"
+                  x="11"
+                  y="37"
+                  width="28"
+                  height="1"
+                  fill="#54504E"
+                />
+                <rect
+                  id="Rectangle 992"
+                  x="5"
+                  y="32"
+                  width="54"
+                  height="1"
+                  fill="#9E9492"
+                />
+                <rect
+                  id="Rectangle 989"
+                  x="7"
+                  y="37"
+                  width="2"
+                  height="1"
+                  fill="#54504E"
+                />
+                <rect
+                  id="Rectangle 990"
+                  x="41"
+                  y="37"
+                  width="16"
+                  height="1"
+                  fill="#54504E"
+                />
+                <rect
+                  id="Rectangle 991"
+                  x="41"
+                  y="49"
+                  width="16"
+                  height="1"
+                  fill="#54504E"
+                />
+                <line
+                  id="Line 143"
+                  y1="60"
+                  x2="64"
+                  y2="60"
+                  stroke="#453F3C"
+                  stroke-width="2"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="about-text">
+          <div class="about-me">
+            <div class="line"></div>
+            <p class="subheads">About Me</p>
+          </div>
+          <p id="about-me-text">
+            Hi, I am a enthusiastic front-end developer with a Master's degree
+            in Software Development. I possess an impressive set of skills in
+            HTML, CSS, JavaScript, TypeScript, React and Tailwind. I am
+            passionate about developing and maintaining bespoke, responsive,
+            scalable and user friendly web applications through writing clean
+            and optimized code, as well as leveraging modern development tools
+            and methodologies. Additionally, I am a team player who excels in
+            working alongside cross-functional teams to develop exceptional web
+            applications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="segment">
+      <div id="experience-segment">
+        <p class="subheads">Experience</p>
+        <div class="experiences">
+          <div class="experience">
+            <p class="experience-title">Implementation Engineer</p>
+            <div class="detail-section-experience">
+              <div class="experience-header">
+                <p class="experience-company">Amadeus</p>
+                <p class="experience-duration">07/2023 - Present</p>
+              </div>
+
+              <p class="experience-description">
+                Implementation of several different airline related services
+                such as booking systems to over 80 airlines over the world.
+              </p>
+            </div>
+          </div>
+          <div class="experience">
+            <p class="experience-title">Front End Developer</p>
+            <div class="detail-section-experience">
+              <p class="experience-company"></p>
+              <div class="experience-header">
+                <div class="experience-company">
+                  Adaptive Financial Consulting
+                </div>
+                <p class="experience-duration">09/2022 - 03/2023</p>
+              </div>
+
+              <p class="experience-description">
+                Building a stock trading platform in React using the Scrum
+                framework. Developing an internal React component library
+              </p>
+            </div>
+          </div>
+          <div class="experience">
+            <p class="experience-title">Advisory Intern</p>
+            <div class="detail-section-experience">
+              <div class="experience-header">
+                <div class="experience-company">PWC</div>
+                <p class="experience-duration">01/2023 - 04/2023</p>
+              </div>
+
+              <p class="experience-description">
+                I was part of the Advisory department at PWC. I also underwent
+                an Appian Bootcamp for the Appian development team at PWC.
+              </p>
+            </div>
+          </div>
+          <div class="experience">
+            <p class="experience-title">Business Analyst</p>
+            <div class="detail-section-experience">
+              <div class="experience-header">
+                <div class="experience-company">IBM</div>
+                <p class="experience-duration">08/2019 - 08/2020</p>
+              </div>
+
+              <p class="experience-description">
+                Part of several projects with people from the US, Brazil and
+                Europe where I managed reporting, led daily scrum meetings a
+                prepared daily reports using SQL and several internal tools.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="education-container">
+          <div class="education">
+            <h3>Education</h3>
+            <div class="location">
+              <h4>University of Strathclyde</h4>
+              <img src="./images/globe.png" alt="" />
+              <p>Glasgow, Scotland</p>
+            </div>
+
+            <p>Master's, Software Development <span>09/2021 - 09/2022</span></p>
+            <div class="location">
+              <h4>Glasgow Caledonian University</h4>
+              <img src="./images/globe.png" alt="" />
+              <p>Glasgow, Scotland</p>
+            </div>
+
+            <p>
+              Bachelor's, Business Management <span>09/2017 - 09/2021</span>
+            </p>
+          </div>
+          <div class="certification">
+            <h3>Certification</h3>
+            <p>Google Python Certification</p>
+            <p>IBM Agile Explorer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="segment">Projects Content</section>
+
+    <section id="contact" class="segment">
+      <div id="contact-segment">
+        <h2>Contact Me!</h2>
+        <div class="contact-header">
+          <p>Don't be shy hit me up.</p>
+
+          <img src="./images/finger.png" alt="" />
+        </div>
+        <div class="contacts">
+          <div data-hover-src="./images/email-gif.gif">
+            <img src="./images/email.png" alt="" />
+            <span>adrian.rosipal98@gmail.com</span>
+          </div>
+          <div>
+            <img src="./images/phone.png" alt="" />
+            <span>+33 6 28 24 94 61</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
