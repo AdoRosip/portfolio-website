@@ -377,6 +377,10 @@ svg {
   flex: 1; /* Ensures it takes remaining space */
 }
 
+#projects {
+  justify-content: flex-start;
+}
+
 #project-segment {
   display: flex;
   flex-direction: row;
@@ -389,6 +393,7 @@ svg {
   border: 1px solid rgba(53, 53, 53, 0.5);
   align-items: center;
   flex: 1;
+  flex-basis: 30%;
   padding: 15px;
   gap: 1rem;
   background-color: rgba(216, 216, 216, 0.3);
