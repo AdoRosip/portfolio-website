@@ -310,6 +310,7 @@ html {
   font-size: 2em;
   margin-top: 10px;
   transform: rotate(-90deg);
+  padding-left: 5px;
 }
 svg {
   width: 256px;
