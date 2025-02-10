@@ -2,9 +2,9 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #edf1fd;
-  color: #8288a2;
+  color: #3c404e;
 }
 
 .nav-bar {
@@ -43,6 +43,9 @@ html {
   align-items: center;
 }
 #about-me-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   font-size: 20px;
 }
 
@@ -358,21 +361,20 @@ svg {
   animation: writing 0.5s 2s linear forwards;
 }
 
-/* @keyframes writing {
-  0% {
-    width: 0px;
-    opacity: 1;
-  }
-  100% {
-    width: 14px;
-    opacity: 1;
-  }
-} */
+#typing-effect {
+  width: 300px; /* Fixed width */
+  min-width: 300px; /* Prevents shrinking */
+  max-width: 300px; /* Ensures it doesn’t grow */
+  overflow: hidden; /* Ensures text doesn't overflow */
+  font-size: 45px;
+  flex: 1;
+}
 
 .about-text {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1; /* Ensures it takes remaining space */
 }
 
 #project-segment {
@@ -476,8 +478,9 @@ svg {
   .about-me-segment {
     display: flex;
     flex-direction: row;
-    gap: 20%;
+    justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center; /* Aligns items properly */
   }
 
   .segment {
