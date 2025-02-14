@@ -312,56 +312,31 @@ html {
   transform: rotate(-90deg);
   padding-left: 5px;
 }
-svg {
-  width: 256px;
-  height: 256px;
+
+.get-in-touch img {
+  border: none;
+  height: 38px;
+  width: 38px;
 }
 
-/* SMOKE */
-#smoke-1 {
-  stroke-dasharray: 0, 10;
-  animation: smoke 6s ease infinite;
+.get-in-touch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
-#smoke-2 {
-  stroke-dasharray: 0, 10;
-  animation: smoke 6s 0.5s ease infinite;
+.get-in-touch:hover {
+  transform: translateX(20px); /* Move 20px to the right */
 }
 
-@keyframes smoke {
-  0% {
-    stroke-dasharray: 0, 10;
-  }
-  50% {
-    stroke-dasharray: 10, 0;
-  }
-  100% {
-    stroke-dasharray: 10, 0;
-    opacity: 0;
-  }
+.get-in-touch a {
+  padding-top: 14px;
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Uses the parent element’s text color */
 }
-
-/* WRITING */
-#line-1 {
-  opacity: 0;
-  animation: writing 0.5s linear forwards;
-}
-
-#line-2 {
-  opacity: 0;
-  animation: writing 0.5s 1s linear forwards;
-}
-
-#line-3 {
-  opacity: 0;
-  animation: writing 0.5s 1.5s linear forwards;
-}
-
-#line-4 {
-  opacity: 0;
-  animation: writing 0.5s 2s linear forwards;
-}
-
 #typing-effect {
   width: 300px; /* Fixed width */
   min-width: 300px; /* Prevents shrinking */
@@ -386,6 +361,10 @@ svg {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+}
+
+#resume:hover {
+  cursor: pointer;
 }
 
 .project-container {
