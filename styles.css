@@ -306,6 +306,11 @@ html {
   gap: 1rem;
 }
 
+.project-links a img {
+  height: 45px;
+  width: 45px;
+}
+
 .arrow {
   font-size: 2em;
   margin-top: 10px;

@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", typeEffect);
 document.getElementById("resume").addEventListener("click", function () {
   // Create a link element
   const link = document.createElement("a");
-  link.href = "assets/AdrianRosipal-CV.pdf"; // Adjust the path if necessary
+  link.href = "assets/AdrianRosipalResume.pdf"; // Adjust the path if necessary
   link.download = "AdrianRosipalCV.pdf"; // The name of the downloaded file
 
   // Append to the body, trigger download, and remove the link
