@@ -50,7 +50,7 @@ html {
 }
 
 .segment {
-  min-height: 100vh;
+  margin: 15rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,5 +558,42 @@ html {
   }
   .certification {
     margin-bottom: 7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Styles for small phones (iPhone SE, older Androids, etc.) */
+  .nav-bar {
+    display: none;
+  }
+
+  .certification {
+    display: flex;
+  }
+  .certification ul {
+    align-self: flex-start;
+    padding: 0;
+    text-decoration: dashed;
+  }
+
+  .name-para {
+    padding: 0 10%;
+  }
+
+  #intro-text {
+    padding: 0 10%;
+  }
+
+  .tech-stack {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .segment {
+    margin: 5rem 0;
+  }
+
+  #home {
+    margin-top: 1rem;
   }
 }
