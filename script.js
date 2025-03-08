@@ -1,7 +1,6 @@
 const textArray = [
   "Frontend Developer",
   "Tech Explorer",
-  "Coding and trading give me dopamine",
   "Code by day, markets by night",
   "Turning caffeine into commits",
   "Occasional procrastinator",
