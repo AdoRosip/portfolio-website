@@ -401,6 +401,7 @@ html {
   .project-container {
     max-width: 250px;
     max-height: 400px;
+    gap: 0;
   }
   #projects {
     display: flex;
