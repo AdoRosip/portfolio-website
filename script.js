@@ -2,7 +2,6 @@ const textArray = [
   "Frontend Developer",
   "Tech Explorer",
   "Code by day, markets by night",
-  "Turning caffeine into commits",
   "Occasional procrastinator",
 ];
 let textIndex = 0;
