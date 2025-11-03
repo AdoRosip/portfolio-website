@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frontend developer focused on performant, accessible web apps. Projects, experience, and contact." />
+    <meta property="og:title" content="Adrian Rosipal – Frontend Developer" />
+    <meta property="og:description" content="Frontend developer focused on performant, accessible web apps. Explore featured case studies and experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/XEV00166.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./images/picture.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <title>Portfolio</title>
+    <title>Adrian Rosipal – Frontend Developer</title>
   </head>
 
   <body>
@@ -19,6 +26,7 @@
       <a href="#experience" aria-label="Go to Experience">Experience</a>
       <a href="#projects" aria-label="Go to Projects">Projects</a>
       <a href="#contact" aria-label="Go to Contact">Contact</a>
+      <button id="themeToggle" aria-label="Toggle dark mode">🌓</button>
     </div>
 
     <section id="home" class="segment">
@@ -29,10 +37,18 @@
         </div>
         <p class="name-para">I'm <span id="name">Adrian</span> Rosipal</p>
         <p id="intro-text">
-          I'm a software developer with a passion for everything front end.
-          <br />
-          Welcome to my small corner of the internet.
+          I'm a software developer currently working at Amadeus, the world's leading travel technology provider. 
+          I care about clear code, solid UX, and performance.
         </p>
+        <div class="hero-badges" aria-label="Highlights">
+          <span class="badge">3+ yrs building web apps</span>
+          <span class="badge">Focus: React / Angular</span>
+          <span class="badge">Aviation & Finance</span>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects">View featured projects</a>
+          <button class="btn btn-secondary" id="downloadResumeBtn" aria-label="Download resume">Download resume</button>
+        </div>
         <div class="tech-stack-container">
           <p id="tech-stack-para">Tech Stack</p>
           <ul class="tech-stack">
@@ -77,25 +93,14 @@
           </div>
           <p id="about-me-text">
             <span>
-              I currently work closely with clients (mostly airlines) on
-              cutting-edge airline booking system and provide top-notch
-              solutions.
+              I currently work as a software developer on a white-label flight booking application used by over 80 airlines worldwide — covering everything from flight availability to servicing and payments.
             </span>
             <span>
-              Before diving into front-end development, I had a mix of
-              experiences—from managing airline booking system migrations as a
-              project manager to working on trading platforms covering different
-              asset classes. I also spent time at PwC, IBM, and BNP Paribas,
-              picking up skills in business, finance, and tech along the way.
+              Before moving into front-end development, I managed airline system migrations. I also have working experience on building trading platforms across different asset classes. Throughout my university years, I’ve also spent time at PwC, IBM, and BNP Paribas, where I built a mix of business, finance, and tech experience.
             </span>
             <span>
               Outside of work, I enjoy finance, investing and sports, along with
               traveling, reading, and tackling new challenges.
-            </span>
-            <span>
-              Whether I'm working with clients or pursuing my own interests, I
-              always aim to produce work that exceeds expectations as I
-              ultimately believe that if you do something, do it on 100%.
             </span>
           </p>
           <div class="get-in-touch">
@@ -230,12 +235,13 @@
               class="project-image"
               src="./images/stock-graph-icon.png"
               alt="Stock analysis project icon"
+              loading="lazy"
             />
             <h3>Moving Averages Calculator and Visualizer</h3>
-            <p class="project-description">
-              Simple Flask web app that allows users to analyze stock prices
-              using Moving averages, Bollinger bands and stock analysis.
-            </p>
+            <div class="case">
+              <p>Simple Flask web app that allows users to analyze stock prices using Moving averages, Bollinger bands and stock analysis.</p>
+
+            </div>
             <div class="tech-used">
               <div class="tech">
                 <span>Python</span>
@@ -243,8 +249,8 @@
               </div>
             </div>
             <div class="project-links">
-               <a href="https://github.com/AdoRosip/MovingAveragesCalculator" rel="noopener noreferrer"
-                ><img src="./images/icons8-github-50.png" alt=""
+              <a href="https://github.com/AdoRosip/MovingAveragesCalculator" rel="noopener noreferrer"
+                ><img src="./images/icons8-github-50.png" alt="GitHub repository"
               /></a>
             </div>
           </div>
@@ -253,12 +259,14 @@
               class="project-image"
               src="./images/icons8-stock-96.png"
               alt="Stock tracker project icon"
+              loading="lazy"
             />
             <h3>Stock Tracker</h3>
-            <p class="project-description">
-              A stock stock platform where you can search for any given stock,
-              see its current price, history, company overview, etc.
-            </p>
+            <div class="case">
+              <p>
+                A stock stock platform where you can search for any given stock, see its current price, history, company overview, etc.
+              </p>
+            </div>
             <div class="tech-used">
               <div class="tech">
                 <span>React</span>
@@ -270,12 +278,12 @@
               <a
                 target="_blank"
                href="https://github.com/AdoRosip/react-stock-tracker" rel="noopener noreferrer"
-                ><img src="./images/icons8-github-50.png" alt=""
+                ><img src="./images/icons8-github-50.png" alt="GitHub repository"
               /></a>
               <a
                 target="_blank"
                 href="https://adorosip.github.io/react-stock-tracker/" rel="noopener noreferrer"
-                ><img src="./images/globe.png" alt=""
+                ><img src="./images/globe.png" alt="Live demo"
               /></a>
             </div>
           </div>
@@ -305,6 +313,21 @@
           <h2>Get in touch!</h2>
           <img src="./images/finger.png" alt="finger poiting down" />
         </div>
+        <form id="contactForm" action="https://formspree.io/f/xbldwrzj" method="POST" class="contact-form">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
         <div class="contacts">
           <div data-hover-src="./images/email-gif.gif">
             <img src="./images/email.png" alt="email" />
