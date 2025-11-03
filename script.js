@@ -1,8 +1,7 @@
 const textArray = [
-  "Frontend Developer",
-  "Tech Explorer",
-  "Code by day, markets by night",
-  "Occasional procrastinator",
+  "Frontend developer at Amadeus",
+  "Angular • React • TypeScript",
+  "Aviation and finance",
 ];
 let textIndex = 0;
 let charIndex = 0;
@@ -23,6 +22,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+});
+
+// Theme toggle: system preference + persistence
+document.addEventListener("DOMContentLoaded", function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById("themeToggle");
+  if (!toggle) return;
+
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") root.setAttribute("data-theme", "dark");
+  if (saved === "light") root.setAttribute("data-theme", "light");
+
+  toggle.addEventListener("click", () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    const next = isDark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
 });
 
 // Scroll spy + nav backdrop on scroll
@@ -129,6 +146,17 @@ document.getElementById("resume").addEventListener("click", function () {
   document.body.removeChild(link);
 });
 
+// Wire hero resume button to existing download logic
+document.addEventListener("DOMContentLoaded", function () {
+  const heroBtn = document.getElementById("downloadResumeBtn");
+  const resume = document.getElementById("resume");
+  if (heroBtn && resume) {
+    heroBtn.addEventListener("click", () => {
+      resume.click();
+    });
+  }
+});
+
 // IntersectionObserver reveal animations
 document.addEventListener("DOMContentLoaded", function () {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -164,4 +192,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
   prev.addEventListener("click", () => scrollByAmount(-1));
   next.addEventListener("click", () => scrollByAmount(1));
+});
+
+// Contact form: AJAX submit to Formspree with graceful fallback
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  // Create/locate status element
+  let status = form.querySelector(".form-status");
+  if (!status) {
+    status = document.createElement("div");
+    status.className = "form-status";
+    form.appendChild(status);
+  }
+
+  function showStatus(message, kind) {
+    status.textContent = message;
+    status.setAttribute("data-kind", kind);
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    showStatus("Sending…", "info");
+
+    const action = form.getAttribute("action") || "";
+    const method = (form.getAttribute("method") || "POST").toUpperCase();
+    const formData = new FormData(form);
+
+    const emailFallback = () => {
+      const name = encodeURIComponent(formData.get("name") || "");
+      const email = encodeURIComponent(formData.get("email") || "");
+      const message = encodeURIComponent(formData.get("message") || "");
+      const subject = encodeURIComponent("Portfolio contact");
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:adrian.rosipal98@gmail.com?subject=${subject}&body=${body}`;
+      showStatus("Opening your email client…", "info");
+    };
+
+    // If no valid Formspree endpoint, fallback immediately
+    if (!/formspree\.io\/f\//.test(action)) {
+      emailFallback();
+      return;
+    }
+
+    try {
+      const res = await fetch(action, {
+        method,
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (res.ok) {
+        form.reset();
+        showStatus("Thanks! I’ll get back to you soon.", "success");
+      } else {
+        // 404 (form not found) or any error -> fallback
+        emailFallback();
+      }
+    } catch (err) {
+      emailFallback();
+    }
+  });
 });

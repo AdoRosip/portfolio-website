@@ -87,6 +87,16 @@ body::after {
   color: #ff013d;
 }
 
+/* Theme toggle button */
+#themeToggle {
+  margin-left: 8px;
+  border: 1px solid rgba(60, 64, 78, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
 .nav-bar a.active {
   color: #ff013d;
   text-underline-offset: 6px;
@@ -255,6 +265,14 @@ body::after {
   flex-direction: column;
 }
 
+.education-info-container span {
+  color: rgba(255, 255, 255, 0.644)
+}
+
+.education-info-container p {
+  color: rgba(255, 255, 255, 0.644)
+}
+
 #home {
   display: flex;
   align-items: center;
@@ -318,6 +336,7 @@ body::after {
 .tech-stack {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 10px; /* Space between items */
   padding-left: 0;
 }
@@ -330,6 +349,11 @@ body::after {
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(60, 64, 78, 0.15);
 }
 
 .tech-stack li {
@@ -340,6 +364,11 @@ body::after {
   transform: translateY(
     -10px
   ); /* Moves the image 10 pixels upwards on hover. Adjust as needed. */
+}
+
+.tech-stack li img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .hello {
@@ -356,6 +385,44 @@ body::after {
 
 #intro-text {
   font-size: 25px;
+}
+
+/* Hero badges & CTAs */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+.badge {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(60, 64, 78, 0.2);
+}
+.hero-ctas {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary {
+  background: #ff013d;
+  color: white;
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(60, 64, 78, 0.2);
 }
 /* body {
   display: flex;
@@ -383,8 +450,9 @@ body::after {
 .arrow {
   font-size: 2em;
   margin-top: 10px;
-  transform: rotate(-90deg);
+  transform: rotate(0deg);
   padding-left: 5px;
+  height: 50px;
 }
 
 .get-in-touch img {
@@ -460,6 +528,12 @@ body::after {
 .project-container:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(60, 64, 78, 0.15);
+}
+
+/* Case study text */
+.case p {
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
 /* Projects carousel using CSS scroll snap */
@@ -604,6 +678,9 @@ body::after {
     width: 100%; /* Full width for better visibility */
     text-align: center; /* Center-align the text */
   }
+  #themeToggle {
+    align-self: center;
+  }
 
   #home {
     padding: 0 5%; /* Reduce horizontal padding */
@@ -739,4 +816,77 @@ body::after {
   #home {
     margin-top: 1rem;
   }
+}
+
+/* Contact form */
+.contact-form {
+  display: grid;
+  gap: 12px;
+  width: min(600px, 100%);
+  margin: 12px 0 24px;
+}
+.contact-form .form-row {
+  display: grid;
+  gap: 6px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(60, 64, 78, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.form-status {
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+.form-status[data-kind="success"] {
+  color: #0a7d32;
+}
+.form-status[data-kind="info"] {
+  color: #3c404e;
+}
+.form-status[data-kind="error"] {
+  color: #b00020;
+}
+
+/* Dark mode (system and manual) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  color: #e9edf7;
+}
+[data-theme="dark"] .project-container,
+[data-theme="dark"] .badge,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea,
+[data-theme="dark"] .nav-bar {
+  background-color: rgba(30, 32, 40, 0.45);
+  color: #e9edf7;
+}
+[data-theme="dark"] .nav-bar a {
+  color: #c0c5d6;
+}
+[data-theme="dark"] .nav-bar a.active,
+[data-theme="dark"] .nav-bar a:hover {
+  color: #ff4a76;
+}
+
+/* Improve icon visibility in dark mode */
+[data-theme="dark"] .tech-stack li {
+  background: rgba(255, 255, 255, 0.158);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="dark"] .tech-stack li img {
+  filter: brightness(1.15) contrast(1.05) saturate(1.1)
+    drop-shadow(0 1px 6px rgba(255, 255, 255, 0.1));
 }
