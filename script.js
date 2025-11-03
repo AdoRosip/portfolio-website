@@ -25,6 +25,38 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Scroll spy + nav backdrop on scroll
+document.addEventListener("DOMContentLoaded", function () {
+  const nav = document.getElementById("navBar");
+  const links = Array.from(document.querySelectorAll(".nav-bar a"));
+  const sections = links
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+
+  function updateActiveLink() {
+    const scrollPos = window.scrollY + 100; // offset for sticky nav
+    let currentId = sections[0]?.id;
+    for (const section of sections) {
+      if (scrollPos >= section.offsetTop) currentId = section.id;
+    }
+    links.forEach((a) => {
+      a.classList.toggle("active", a.getAttribute("href") === `#${currentId}`);
+    });
+  }
+
+  function updateNavBackdrop() {
+    if (window.scrollY > 10) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  }
+
+  updateActiveLink();
+  updateNavBackdrop();
+  window.addEventListener("scroll", () => {
+    updateActiveLink();
+    updateNavBackdrop();
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const listItems = document.querySelectorAll(".tech-stack li");
 
@@ -95,4 +127,41 @@ document.getElementById("resume").addEventListener("click", function () {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+});
+
+// IntersectionObserver reveal animations
+document.addEventListener("DOMContentLoaded", function () {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) return; // Respect user preference
+
+  const revealables = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealables.forEach((el) => observer.observe(el));
+});
+
+// Projects carousel controls (CSS scroll-snap powered)
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("project-segment");
+  const prev = document.getElementById("prevProjects");
+  const next = document.getElementById("nextProjects");
+  if (!track || !prev || !next) return;
+
+  function scrollByAmount(dir) {
+    const amount = Math.max(320, Math.floor(track.clientWidth * 0.9));
+    track.scrollBy({ left: dir * amount, behavior: "smooth" });
+  }
+
+  prev.addEventListener("click", () => scrollByAmount(-1));
+  next.addEventListener("click", () => scrollByAmount(1));
 });

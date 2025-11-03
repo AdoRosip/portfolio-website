@@ -3,8 +3,50 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  background-color: #edf1fd;
+  /* background-color: #edf1fd; */
   color: #3c404e;
+}
+
+/* Animated ambient background */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20% -10% auto -10%;
+  height: 140vh;
+  z-index: -1;
+  background: radial-gradient(40% 40% at 30% 30%, rgba(255, 1, 61, 0.15), rgba(255, 1, 61, 0) 60%),
+    radial-gradient(35% 35% at 70% 20%, rgba(57, 95, 255, 0.12), rgba(57, 95, 255, 0) 60%),
+    radial-gradient(30% 30% at 50% 75%, rgba(0, 209, 178, 0.12), rgba(0, 209, 178, 0) 60%);
+  filter: blur(40px) saturate(120%);
+  transform: translateZ(0); /* create own layer */
+  pointer-events: none;
+  animation: floatBg 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  animation-duration: 26s;
+  opacity: 0.8;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+    filter: blur(30px);
+  }
 }
 
 .nav-bar {
@@ -12,12 +54,18 @@ html {
   top: 0;
   display: flex;
   justify-content: center;
-  background-color: #edf1fd;
+  background-color: rgba(237, 241, 253, 0.6);
   padding: 10px;
   z-index: 1000;
   padding-top: 35px;
   gap: 20px;
   transition: all 0.3s ease-in-out; /* Smooth transition for changes */
+}
+
+.nav-bar.scrolled {
+  backdrop-filter: saturate(120%) blur(10px);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  box-shadow: 0 6px 24px rgba(60, 64, 78, 0.08);
 }
 .subheads {
   font-size: 35px;
@@ -38,6 +86,12 @@ html {
 .nav-bar a:hover {
   color: #ff013d;
 }
+
+.nav-bar a.active {
+  color: #ff013d;
+  text-underline-offset: 6px;
+  text-decoration: underline;
+}
 .about-me {
   display: flex;
   align-items: center;
@@ -55,6 +109,17 @@ html {
   align-items: center;
   justify-content: center;
   padding: 0 10%;
+}
+
+/* Scroll reveal base */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-me-segment {
@@ -379,18 +444,61 @@ html {
 .project-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(53, 53, 53, 0.5);
+  border: 1px solid rgba(53, 53, 53, 0.2);
   align-items: center;
   flex: 1;
   flex-basis: 30%;
   padding: 15px;
   gap: 1rem;
-  background-color: rgba(216, 216, 216, 0.3);
-  transition: padding-bottom 0.8s, box-shadow 0.8s; /* Add this line */
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-container:hover {
-  box-shadow: 0px 5px 2px 0px rgba(130, 136, 162, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(60, 64, 78, 0.15);
+}
+
+/* Projects carousel using CSS scroll snap */
+.projects-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(80%, 420px);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.projects-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+.projects-track > .project-container {
+  scroll-snap-align: start;
+}
+.projects-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+.projects-controls button {
+  border: 1px solid rgba(60, 64, 78, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+.projects-controls button:active {
+  transform: translateY(1px);
+}
+.projects-controls button:hover {
+  box-shadow: 0 6px 20px rgba(60, 64, 78, 0.12);
 }
 
 @media only screen and (max-width: 720px) {

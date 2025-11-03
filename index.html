@@ -13,16 +13,16 @@
   </head>
 
   <body>
-    <div class="nav-bar" id="navBar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-bar" id="navBar" role="navigation" aria-label="Primary">
+      <a href="#home" aria-label="Go to Home">Home</a>
+      <a href="#about" aria-label="Go to About">About</a>
+      <a href="#experience" aria-label="Go to Experience">Experience</a>
+      <a href="#projects" aria-label="Go to Projects">Projects</a>
+      <a href="#contact" aria-label="Go to Contact">Contact</a>
     </div>
 
     <section id="home" class="segment">
-      <div class="home-left">
+      <div class="home-left reveal">
         <div class="hello">
           <div class="line"></div>
           <p id="hello">Hello,</p>
@@ -61,14 +61,14 @@
         </div>
       </div>
 
-      <div class="vertical-text">
+      <div class="vertical-text reveal">
         Scroll Down
         <div class="arrow">&#8595;</div>
       </div>
     </section>
 
     <section id="about" class="segment">
-      <div class="about-me-segment">
+      <div class="about-me-segment reveal">
         <p id="typing-effect"></p>
         <div class="about-text">
           <div class="about-me">
@@ -110,7 +110,7 @@
     </section>
 
     <section id="experience" class="segment">
-      <div id="experience-segment">
+      <div id="experience-segment" class="reveal">
         <div class="header-container">
           <div class="line"></div>
           <p class="subheads">Experience</p>
@@ -179,13 +179,13 @@
             </div>
           </div>
         </div>
-        <div class="education-container">
+        <div class="education-container reveal">
           <div class="education">
             <h3>Education</h3>
             <div class="education-info-container">
               <div class="location">
                 <h4>University of Strathclyde</h4>
-                <img src="./images/globe.png" alt="" />
+                <img src="./images/globe.png" alt="Globe icon" />
                 <p>Glasgow, Scotland</p>
               </div>
 
@@ -195,7 +195,7 @@
             <div class="education-info-container">
               <div class="location">
                 <h4>Glasgow Caledonian University</h4>
-                <img src="./images/globe.png" alt="" />
+                <img src="./images/globe.png" alt="Globe icon" />
                 <p>Glasgow, Scotland</p>
               </div>
               <span>Bachelor's, Business Management</span>
@@ -215,17 +215,21 @@
     </section>
 
     <section id="projects" class="segment">
-      <div class="projects-container">
+      <div class="projects-container reveal">
         <div class="header-container">
           <div class="line"></div>
           <p class="subheads">Projects</p>
         </div>
-        <div id="project-segment">
-          <div class="project-container">
+        <div class="projects-controls" aria-label="Project carousel controls">
+          <button id="prevProjects" aria-label="Previous projects">&#8592;</button>
+          <button id="nextProjects" aria-label="Next projects">&#8594;</button>
+        </div>
+        <div id="project-segment" class="projects-track" aria-label="Projects carousel">
+          <div class="project-container reveal">
             <img
               class="project-image"
               src="./images/stock-graph-icon.png"
-              alt=""
+              alt="Stock analysis project icon"
             />
             <h3>Moving Averages Calculator and Visualizer</h3>
             <p class="project-description">
@@ -239,16 +243,16 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://github.com/AdoRosip/MovingAveragesCalculator"
+               <a href="https://github.com/AdoRosip/MovingAveragesCalculator" rel="noopener noreferrer"
                 ><img src="./images/icons8-github-50.png" alt=""
               /></a>
             </div>
           </div>
-          <div class="project-container">
+          <div class="project-container reveal">
             <img
               class="project-image"
               src="./images/icons8-stock-96.png"
-              alt=""
+              alt="Stock tracker project icon"
             />
             <h3>Stock Tracker</h3>
             <p class="project-description">
@@ -265,12 +269,12 @@
             <div class="project-links">
               <a
                 target="_blank"
-                href="https://github.com/AdoRosip/react-stock-tracker"
+               href="https://github.com/AdoRosip/react-stock-tracker" rel="noopener noreferrer"
                 ><img src="./images/icons8-github-50.png" alt=""
               /></a>
               <a
                 target="_blank"
-                href="https://adorosip.github.io/react-stock-tracker/"
+                href="https://adorosip.github.io/react-stock-tracker/" rel="noopener noreferrer"
                 ><img src="./images/globe.png" alt=""
               /></a>
             </div>
@@ -296,7 +300,7 @@
     </section>
 
     <section id="contact" class="segment">
-      <div id="contact-segment">
+      <div id="contact-segment" class="reveal">
         <div class="contact-header">
           <h2>Get in touch!</h2>
           <img src="./images/finger.png" alt="finger poiting down" />
@@ -317,7 +321,7 @@
           <div id="linkedin">
             <a
               target="_blank"
-              href="https://www.linkedin.com/in/adrian-rosipal-606567172/"
+              href="https://www.linkedin.com/in/adrian-rosipal-606567172/" rel="noopener noreferrer"
               ><img src="./images/linkedin-icon.png" alt="linked in" />
             </a>
             <span id="test">LinkedIn</span>
