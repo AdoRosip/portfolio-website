@@ -228,7 +228,7 @@ body::after {
 
 #contact {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .contact-header {
@@ -670,6 +670,12 @@ body::after {
 }
 
 @media (max-width: 600px) {
+
+  #contact-segment{
+    display: flex !important;
+    flex-direction: column;
+  }
+
   .nav-bar {
     flex-direction: column; /* Change direction from row to column */
     align-items: center; /* Center the items */
@@ -759,6 +765,7 @@ body::after {
 
 @media (max-width: 480px) {
   /* Styles for small phones (iPhone SE, older Androids, etc.) */
+
   .nav-bar {
     display: none;
   }
@@ -822,6 +829,24 @@ body::after {
   }
 }
 
+/*Contact segment*/
+
+#contact-segment{
+  display: grid;
+  grid-template-rows: auto 1fr;   /* top row = header height, bottom row = fills remaining space */
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  height: 100%;   
+  gap: 3rem;
+}
+.contact-header{
+  grid-column: 1 / span 2;
+  background: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
 /* Contact form */
 .contact-form {
   display: grid;
@@ -883,6 +908,10 @@ body::after {
 [data-theme="dark"] .nav-bar a.active,
 [data-theme="dark"] .nav-bar a:hover {
   color: #ff4a76;
+}
+[data-theme="dark"] #moving-avrg-img {
+  background-color: #e1ddff85;
+  border-radius: 15px;
 }
 
 /* Improve icon visibility in dark mode */
