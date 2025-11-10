@@ -923,3 +923,7 @@ body::after {
   filter: brightness(1.15) contrast(1.05) saturate(1.1)
     drop-shadow(0 1px 6px rgba(255, 255, 255, 0.1));
 }
+[data-theme="dark"] .icons-bg {
+  background-color: #eaf0ffd1;
+  border-radius: 25%;
+}
