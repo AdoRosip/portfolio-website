@@ -123,20 +123,6 @@ body::after {
   padding: 0 10%;
 }
 
-#experience-segment {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.segmented-control-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 32px 0;
-}
-
 /* Scroll reveal base */
 .reveal {
   opacity: 0;
@@ -277,234 +263,6 @@ body::after {
   font-size: 12px;
   font-weight: 500;
   color: #8288a2;
-}
-
-/* Segmented Control Toggle */
-.segmented-control {
-  position: relative;
-  display: inline-flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
-  width: fit-content;
-}
-
-.segment-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 32px;
-  background: transparent;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #8288a2;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  z-index: 2;
-  flex: 1;
-  white-space: nowrap;
-}
-
-.segment-icon {
-  font-size: 20px;
-}
-
-.segment-btn.active {
-  color: #fff;
-}
-
-.segment-slider {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  height: calc(100% - 8px);
-  width: calc(50% - 6px);
-  background: linear-gradient(135deg, #ff013d, #ff4d6d);
-  border-radius: 10px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.segment-btn[data-tab="education"].active ~ .segment-slider {
-  transform: translateX(calc(100% + 4px));
-}
-
-/* Tab Content */
-.tab-content {
-  display: none;
-  animation: fadeIn 0.4s ease;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* New Education Grid */
-.education-grid-new {
-  display: flex;
-  gap: 40px;
-  margin-top: 32px;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.education-section {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  flex: 1;
-  min-width: 0;
-}
-
-.education-divider {
-  width: 2px;
-  flex-shrink: 0;
-  align-self: stretch;
-  background: linear-gradient(to bottom, 
-    rgba(255, 255, 255, 0.1) 0%, 
-    rgba(255, 1, 61, 0.3) 50%, 
-    rgba(255, 255, 255, 0.1) 100%);
-  position: relative;
-}
-
-.education-divider::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: #ff013d;
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(255, 1, 61, 0.5);
-}
-
-.education-card-new {
-  padding: 32px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.education-card-new:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(255, 1, 61, 0.1);
-}
-
-.education-icon-new {
-  font-size: 48px;
-  flex-shrink: 0;
-}
-
-#education-content {
-  align-self: center;
-}
-
-.education-details h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #fff;
-}
-
-.education-school {
-  color: #ff013d;
-  font-weight: 600;
-  margin-bottom: 12px;
-  font-size: 15px;
-}
-
-.education-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 14px;
-  color: #8288a2;
-}
-
-.education-location {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Certifications Card */
-.certifications-card {
-  padding: 32px;
-  flex: 1;
-  min-width: 0;
-}
-
-.cert-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.cert-icon {
-  font-size: 48px;
-}
-
-.cert-header h3 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.cert-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-.cert-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  font-size: 15px;
-  color: #fff;
-  transition: all 0.3s ease;
-}
-
-.cert-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 1, 61, 0.3);
-  transform: translateX(4px);
-}
-
-.cert-dot {
-  width: 8px;
-  height: 8px;
-  background: #ff013d;
-  border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .education-container {
@@ -940,7 +698,6 @@ body::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
-  margin-top: 20px;
 }
 
 .project-card {
@@ -948,21 +705,19 @@ body::after {
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  min-height: 420px;
 }
 
 .project-image {
   position: relative;
   width: 100%;
   aspect-ratio: 16/10;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .project-image img {
@@ -1008,47 +763,33 @@ body::after {
   transform: scale(1.1);
 }
 
-.project-content {
-  padding: 0 8px;
-}
-
 .project-content h3 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
-  margin-bottom: 16px;
-  color: #fff;
-  line-height: 1.3;
+  margin-bottom: 12px;
 }
 
 .project-content p {
   color: #8288a2;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
 }
 
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-top: auto;
-  padding-top: 8px;
 }
 
 .project-tech span {
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  color: #a0a6c0;
-  transition: all 0.2s ease;
-}
-
-.project-tech span:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+  color: #8288a2;
 }
 
 /* Case study text */
@@ -1164,10 +905,6 @@ body::after {
     max-width: 100%; /* Full width for home-left */
     padding: 0; /* Remove right padding */
   }
-  
-  .hero-right {
-    display: none; /* Hide floating cards on tablet */
-  }
 
   .vertical-text {
     display: none;
@@ -1177,10 +914,6 @@ body::after {
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
-  
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-me-segment {
@@ -1197,94 +930,6 @@ body::after {
 }
 
 @media (max-width: 600px) {
-
-  /* Hide hero right on mobile */
-  .hero-right {
-    display: none;
-  }
-  
-  /* Responsive segmented control */
-  .segmented-control {
-    width: 100%;
-    flex-direction: column;
-  }
-  
-  .segment-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-  }
-  
-  .segment-slider {
-    width: calc(100% - 8px);
-    height: calc(50% - 6px);
-  }
-  
-  .segment-btn[data-tab="education"].active ~ .segment-slider {
-    transform: translateY(calc(100% + 4px));
-  }
-  
-  /* Responsive education grid */
-  .education-grid-new {
-    flex-direction: column;
-    gap: 24px;
-  }
-  
-  .education-divider {
-    display: none;
-  }
-  
-  .education-card-new {
-    padding: 24px;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .cert-list {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Responsive timeline */
-  .timeline {
-    padding-left: 24px;
-  }
-  
-  .timeline-dot {
-    left: -29px;
-  }
-  
-  .timeline-content {
-    padding: 20px;
-  }
-  
-  .timeline-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .timeline-header h3 {
-    font-size: 20px;
-  }
-  
-  /* Responsive projects grid */
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-content h3 {
-    font-size: 20px;
-  }
-  
-  .project-content p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .project-tech span {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
 
   #contact-segment{
     display: flex !important;
@@ -1388,7 +1033,11 @@ body::after {
   #experience-segment {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .header-container {
+    align-self: flex-start;
   }
 
   .experiences {
