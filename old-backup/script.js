@@ -254,23 +254,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// Segmented Control Toggle for Experience/Education
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".segment-btn");
-  const contents = document.querySelectorAll(".tab-content");
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const targetTab = this.getAttribute("data-tab");
-
-      // Remove active class from all buttons and contents
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      contents.forEach((content) => content.classList.remove("active"));
-
-      // Add active class to clicked button and corresponding content
-      this.classList.add("active");
-      document.getElementById(`${targetTab}-content`).classList.add("active");
-    });
-  });
-});
