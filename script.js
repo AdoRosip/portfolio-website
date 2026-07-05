@@ -1,205 +1,175 @@
-const textArray = [
-  "Frontend developer at Amadeus",
-  "Angular • React • TypeScript",
-  "Aviation and finance",
+const resumePath = "assets/AdrianRosipalResume.pdf";
+const typingPhrases = [
+  "Software Developer at Genetec",
+  "Angular · React · TypeScript",
+  "Security and finance",
 ];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingSpeed = 100; // Typing speed in ms
-const deletingSpeed = 50; // Deleting speed in ms
-const delayBetweenWords = 1500; // Delay before deleting
 
-document.addEventListener("DOMContentLoaded", function () {
-  const navLinks = document.querySelectorAll(".nav-bar a");
-  for (const link of navLinks) {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      window.scrollTo({
-        top: target.offsetTop,
-        behavior: "smooth",
-      });
-    });
-  }
-});
+let typingPhraseIndex = 0;
+let typingCharIndex = 0;
+let typingIsDeleting = false;
 
-// Theme toggle: system preference + persistence
-document.addEventListener("DOMContentLoaded", function () {
-  const root = document.documentElement;
-  const toggle = document.getElementById("themeToggle");
-  if (!toggle) return;
-
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark") root.setAttribute("data-theme", "dark");
-  if (saved === "light") root.setAttribute("data-theme", "light");
-
-  toggle.addEventListener("click", () => {
-    const isDark = root.getAttribute("data-theme") === "dark";
-    const next = isDark ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  });
-});
-
-// Scroll spy + nav backdrop on scroll
-document.addEventListener("DOMContentLoaded", function () {
-  const nav = document.getElementById("navBar");
-  const links = Array.from(document.querySelectorAll(".nav-bar a"));
-  const sections = links
-    .map((a) => document.querySelector(a.getAttribute("href")))
-    .filter(Boolean);
-
-  function updateActiveLink() {
-    const scrollPos = window.scrollY + 100; // offset for sticky nav
-    let currentId = sections[0]?.id;
-    for (const section of sections) {
-      if (scrollPos >= section.offsetTop) currentId = section.id;
-    }
-    links.forEach((a) => {
-      a.classList.toggle("active", a.getAttribute("href") === `#${currentId}`);
-    });
-  }
-
-  function updateNavBackdrop() {
-    if (window.scrollY > 10) nav.classList.add("scrolled");
-    else nav.classList.remove("scrolled");
-  }
-
-  updateActiveLink();
-  updateNavBackdrop();
-  window.addEventListener("scroll", () => {
-    updateActiveLink();
-    updateNavBackdrop();
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const listItems = document.querySelectorAll(".tech-stack li");
-
-  listItems.forEach((item) => {
-    const img = item.querySelector("img");
-    const originalSrc = img.src;
-    const hoverSrc = item.dataset.hoverSrc;
-
-    item.addEventListener("mouseenter", function () {
-      img.src = hoverSrc;
-    });
-
-    item.addEventListener("mouseleave", function () {
-      img.src = originalSrc;
-    });
-  });
-});
-
-function typeEffect() {
-  const typingElement = document.getElementById("typing-effect");
-  const currentText = textArray[textIndex];
-
-  if (isDeleting) {
-    typingElement.innerText = currentText.substring(0, charIndex--);
-  } else {
-    charIndex++;
-    typingElement.innerText = currentText.substring(0, charIndex);
-  }
-
-  let delay = isDeleting ? deletingSpeed : typingSpeed;
-
-  if (!isDeleting && charIndex === currentText.length) {
-    delay = delayBetweenWords;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    textIndex = (textIndex + 1) % textArray.length;
-  }
-
-  setTimeout(typeEffect, delay);
-}
-
-document.addEventListener("DOMContentLoaded", typeEffect);
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     const contactItems= document.querySelectorAll('.contact-header div');
-//     contactItems.forEach(item => {
-//         const img = item.querySelector('img');
-//         const originalSrc = img.src
-//         const hoverSrc = item.dataset.hoverSrc;
-
-//         item.addEventListener('mouseenter', function(){
-//             img.src = hoverSrc
-//         })
-//         item.addEventListener('mouseleave', function(){
-//             img.src = originalSrc
-//         })
-//     })
-// })
-
-document.getElementById("resume").addEventListener("click", function () {
-  // Create a link element
+function downloadResume() {
   const link = document.createElement("a");
-  link.href = "assets/AdrianRosipalResume.pdf"; // Adjust the path if necessary
-  link.download = "AdrianRosipalCV.pdf"; // The name of the downloaded file
-
-  // Append to the body, trigger download, and remove the link
+  link.href = resumePath;
+  link.download = "AdrianRosipalCV.pdf";
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
-});
+  link.remove();
+}
 
-// Wire hero resume button to existing download logic
-document.addEventListener("DOMContentLoaded", function () {
-  const heroBtn = document.getElementById("downloadResumeBtn");
-  const resume = document.getElementById("resume");
-  if (heroBtn && resume) {
-    heroBtn.addEventListener("click", () => {
-      resume.click();
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const nav = document.getElementById("navBar");
+  const themeToggle = document.getElementById("themeToggle");
+  const themeToggleLabel = themeToggle?.querySelector(".theme-toggle-label");
+  const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark" || savedTheme === "light") {
+    root.setAttribute("data-theme", savedTheme);
+  }
+
+  function updateThemeLabel() {
+    if (!themeToggleLabel) return;
+    themeToggleLabel.textContent = root.getAttribute("data-theme") === "dark" ? "Dark" : "Light";
+  }
+
+  updateThemeLabel();
+
+  themeToggle?.addEventListener("click", () => {
+    const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    updateThemeLabel();
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector(link.getAttribute("href"))?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+
+  function updateNavState() {
+    nav?.classList.toggle("scrolled", window.scrollY > 10);
+
+    const activeSection = sections.reduce((current, section) => {
+      return window.scrollY + 160 >= section.offsetTop ? section : current;
+    }, sections[0]);
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${activeSection?.id}`);
     });
   }
-});
 
-// IntersectionObserver reveal animations
-document.addEventListener("DOMContentLoaded", function () {
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return; // Respect user preference
+  updateNavState();
+  window.addEventListener("scroll", updateNavState, { passive: true });
+
+  document.getElementById("resume")?.addEventListener("click", downloadResume);
+  document.getElementById("downloadResumeBtn")?.addEventListener("click", downloadResume);
+
+  document.querySelectorAll(".tech-stack li").forEach((item) => {
+    const img = item.querySelector("img");
+    const hoverSrc = item.dataset.hoverSrc;
+    if (!img || !hoverSrc) return;
+
+    const originalSrc = img.getAttribute("src");
+    const preload = new Image();
+    preload.src = hoverSrc;
+
+    item.tabIndex = 0;
+    item.dataset.originalSrc = originalSrc;
+
+    const showColoredIcon = () => img.setAttribute("src", hoverSrc);
+    const showDefaultIcon = () => img.setAttribute("src", item.dataset.originalSrc);
+
+    item.addEventListener("mouseenter", showColoredIcon);
+    item.addEventListener("mouseleave", showDefaultIcon);
+    item.addEventListener("focus", showColoredIcon);
+    item.addEventListener("blur", showDefaultIcon);
+  });
+
+  const switcherButtons = document.querySelectorAll(".switcher-button");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+
+  switcherButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.tab;
+
+      switcherButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-selected", String(isActive));
+      });
+
+      tabPanels.forEach((panel) => {
+        panel.classList.toggle("active", panel.id === `${target}-content`);
+      });
+    });
+  });
 
   const revealables = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const typingElement = document.getElementById("typing-effect");
 
-  revealables.forEach((el) => observer.observe(el));
-});
+  function runTypingEffect() {
+    if (!typingElement) return;
 
-// Projects carousel controls (CSS scroll-snap powered)
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.getElementById("project-segment");
-  const prev = document.getElementById("prevProjects");
-  const next = document.getElementById("nextProjects");
-  if (!track || !prev || !next) return;
+    const phrase = typingPhrases[typingPhraseIndex];
+    if (typingIsDeleting) {
+      typingCharIndex -= 1;
+    } else {
+      typingCharIndex += 1;
+    }
 
-  function scrollByAmount(dir) {
-    const amount = Math.max(320, Math.floor(track.clientWidth * 0.9));
-    track.scrollBy({ left: dir * amount, behavior: "smooth" });
+    typingElement.textContent = phrase.slice(0, typingCharIndex);
+
+    let delay = typingIsDeleting ? 45 : 85;
+    if (!typingIsDeleting && typingCharIndex === phrase.length) {
+      typingIsDeleting = true;
+      delay = 1300;
+    } else if (typingIsDeleting && typingCharIndex === 0) {
+      typingIsDeleting = false;
+      typingPhraseIndex = (typingPhraseIndex + 1) % typingPhrases.length;
+      delay = 250;
+    }
+
+    window.setTimeout(runTypingEffect, delay);
   }
 
-  prev.addEventListener("click", () => scrollByAmount(-1));
-  next.addEventListener("click", () => scrollByAmount(1));
-});
+  if (prefersReducedMotion && typingElement) {
+    typingElement.textContent = typingPhrases[0];
+  } else {
+    runTypingEffect();
+  }
 
-// Contact form: AJAX submit to Formspree with graceful fallback
-document.addEventListener("DOMContentLoaded", function () {
+  if (prefersReducedMotion) {
+    revealables.forEach((element) => element.classList.add("show"));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealables.forEach((element) => observer.observe(element));
+  }
+
   const form = document.getElementById("contactForm");
   if (!form) return;
 
-  // Create/locate status element
   let status = form.querySelector(".form-status");
   if (!status) {
     status = document.createElement("div");
@@ -209,68 +179,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showStatus(message, kind) {
     status.textContent = message;
-    status.setAttribute("data-kind", kind);
+    status.dataset.kind = kind;
   }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    showStatus("Sending…", "info");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    showStatus("Sending...", "info");
 
+    const formData = new FormData(form);
     const action = form.getAttribute("action") || "";
     const method = (form.getAttribute("method") || "POST").toUpperCase();
-    const formData = new FormData(form);
 
-    const emailFallback = () => {
-      const name = encodeURIComponent(formData.get("name") || "");
-      const email = encodeURIComponent(formData.get("email") || "");
-      const message = encodeURIComponent(formData.get("message") || "");
+    function openEmailFallback() {
+      const name = formData.get("name") || "";
+      const email = formData.get("email") || "";
+      const message = formData.get("message") || "";
       const subject = encodeURIComponent("Portfolio contact");
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
       window.location.href = `mailto:adrian.rosipal98@gmail.com?subject=${subject}&body=${body}`;
-      showStatus("Opening your email client…", "info");
-    };
+      showStatus("Opening your email client...", "info");
+    }
 
-    // If no valid Formspree endpoint, fallback immediately
     if (!/formspree\.io\/f\//.test(action)) {
-      emailFallback();
+      openEmailFallback();
       return;
     }
 
     try {
-      const res = await fetch(action, {
+      const response = await fetch(action, {
         method,
         headers: { Accept: "application/json" },
         body: formData,
       });
-      if (res.ok) {
-        form.reset();
-        showStatus("Thanks! I’ll get back to you soon.", "success");
-      } else {
-        // 404 (form not found) or any error -> fallback
-        emailFallback();
+
+      if (!response.ok) {
+        openEmailFallback();
+        return;
       }
-    } catch (err) {
-      emailFallback();
+
+      form.reset();
+      showStatus("Thanks. I will get back to you soon.", "success");
+    } catch {
+      openEmailFallback();
     }
-  });
-});
-
-// Segmented Control Toggle for Experience/Education
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".segment-btn");
-  const contents = document.querySelectorAll(".tab-content");
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const targetTab = this.getAttribute("data-tab");
-
-      // Remove active class from all buttons and contents
-      buttons.forEach((btn) => btn.classList.remove("active"));
-      contents.forEach((content) => content.classList.remove("active"));
-
-      // Add active class to clicked button and corresponding content
-      this.classList.add("active");
-      document.getElementById(`${targetTab}-content`).classList.add("active");
-    });
   });
 });

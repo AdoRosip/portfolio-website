@@ -3,406 +3,372 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Frontend developer focused on performant, accessible web apps. Projects, experience, and contact." />
-    <meta property="og:title" content="Adrian Rosipal – Frontend Developer" />
-    <meta property="og:description" content="Frontend developer focused on performant, accessible web apps. Explore featured case studies and experience." />
+    <meta
+      name="description"
+      content="Adrian Rosipal, frontend software developer building polished web products across travel, aviation, and finance."
+    />
+    <meta property="og:title" content="Adrian Rosipal - Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Frontend software developer with experience across Amadeus, airline booking platforms, finance, and modern web applications."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./images/XEV00166.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <title>Adrian Rosipal – Frontend Developer</title>
+    <title>Adrian Rosipal - Frontend Developer</title>
   </head>
 
   <body>
-    <div class="nav-bar" id="navBar" role="navigation" aria-label="Primary">
-      <a href="#home" aria-label="Go to Home">Home</a>
-      <a href="#about" aria-label="Go to About">About</a>
-      <a href="#experience" aria-label="Go to Experience">Experience</a>
-      <a href="#projects" aria-label="Go to Projects">Projects</a>
-      <a href="#contact" aria-label="Go to Contact">Contact</a>
-      <button id="themeToggle" aria-label="Toggle dark mode">🌓</button>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <section id="home" class="segment">
-      <div class="home-left reveal">
-        <div class="hello">
-          <div class="line"></div>
-          <p id="hello">Hello,</p>
+    <header class="site-header" id="navBar">
+      <a class="brand-mark" href="#home" aria-label="Adrian Rosipal home">
+        <span>AR</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="home" aria-label="Portfolio overview">
+        <h1 class="sr-only">Adrian Rosipal portfolio</h1>
+        <div class="hero-copy reveal">
+          <div class="hello-line">
+            <span></span>
+            <p>Hello,</p>
+          </div>
+          <p class="name-line">I'm <strong>Adrian</strong></p>
+          <p class="hero-subtext">
+            I'm a software developer at Genetec in Vienna. Previously at Amadeus,
+            I worked on airline booking products used across global travel. I care about
+            clear code, fast interfaces, and UX that holds up under real complexity.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#projects">View projects</a>
+            <button class="button secondary" id="downloadResumeBtn" type="button">Resume</button>
+          </div>
         </div>
-        <p class="name-para">I'm <span id="name">Adrian</span></p>
-        <p id="intro-text">
-          Software developer at Amadeus - the world's leading travel technology provider. 
-          Building the largest travel-booking platform in the world.
-        </p>
-        <div class="hero-badges" aria-label="Highlights">
-          <span class="badge">3+ yrs building web apps</span>
-          <span class="badge">Focus: React / Angular</span>
-          <span class="badge">Aviation & Finance</span>
+        <div class="floating-board reveal" aria-label="Profile highlights">
+          <div class="constellation-core" aria-hidden="true">
+            <span>AR</span>
+          </div>
+          <article class="floating-block block-work">
+            <span>Current</span>
+            <strong>Genetec</strong>
+            <small>Software Developer · Vienna</small>
+          </article>
+          <article class="floating-block block-education">
+            <span>Education</span>
+            <strong>MSc Software Development</strong>
+            <small>University of Strathclyde</small>
+          </article>
+          <article class="floating-block block-stack">
+            <span>Stack</span>
+            <strong>React · Angular</strong>
+            <small>TypeScript · RxJS · NgRx</small>
+          </article>
         </div>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#projects">View featured projects</a>
-          <button class="btn btn-secondary" id="downloadResumeBtn" aria-label="Download resume">Download resume</button>
-        </div>
-        <div class="tech-stack-container">
-          <p id="tech-stack-para">Tech Stack</p>
+
+        <div class="signal-strip reveal" aria-label="Technology stack">
           <ul class="tech-stack">
-            <li data-hover-src="./images/js-color.png">
-              <img src="./images/js.png" alt="JavaScript icon" />
+            <li class="tech-item" data-hover-src="./images/js-color.png">
+              <img src="./images/js.png" alt="JavaScript" />
+              <span>JavaScript</span>
             </li>
-            <li data-hover-src="./images/ts-col.png">
-              <img src="./images/ts.png" alt="TypeScript icon" />
+            <li class="tech-item" data-hover-src="./images/ts-col.png">
+              <img src="./images/ts.png" alt="TypeScript" />
+              <span>TypeScript</span>
             </li>
-            <li data-hover-src="./images/html-col.png">
-              <img src="./images/html.png" alt="html icon" />
+            <li class="tech-item" data-hover-src="./images/html-col.png">
+              <img src="./images/html.png" alt="HTML" />
+              <span>HTML</span>
             </li>
-            <li data-hover-src="./images/css-col.png">
-              <img src="./images/css.png" alt="css icon" />
+            <li class="tech-item" data-hover-src="./images/css-col.png">
+              <img src="./images/css.png" alt="CSS" />
+              <span>CSS</span>
             </li>
-            <li data-hover-src="./images/tw-color.png">
-              <img src="./images/tw-col.png" alt="tailwind icon" />
+            <li class="tech-item" data-hover-src="./images/tw-color.png">
+              <img src="./images/tw-col.png" alt="Tailwind CSS" />
+              <span>Tailwind</span>
             </li>
-            <li data-hover-src="./images/react-col.png">
-              <img src="./images/react.png" alt="react icon" />
+            <li class="tech-item" data-hover-src="./images/react-col.png">
+              <img src="./images/react.png" alt="React" />
+              <span>React</span>
             </li>
-            <li data-hover-src="./images/angular-colored.png">
-              <img src="./images/angular.png" alt="angular icon" />
+            <li class="tech-item" data-hover-src="./images/angular-colored.png">
+              <img src="./images/angular.png" alt="Angular" />
+              <span>Angular</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/js-color.png" aria-hidden="true">
+              <img src="./images/js.png" alt="" />
+              <span>JavaScript</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/ts-col.png" aria-hidden="true">
+              <img src="./images/ts.png" alt="" />
+              <span>TypeScript</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/html-col.png" aria-hidden="true">
+              <img src="./images/html.png" alt="" />
+              <span>HTML</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/css-col.png" aria-hidden="true">
+              <img src="./images/css.png" alt="" />
+              <span>CSS</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/tw-color.png" aria-hidden="true">
+              <img src="./images/tw-col.png" alt="" />
+              <span>Tailwind</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/react-col.png" aria-hidden="true">
+              <img src="./images/react.png" alt="" />
+              <span>React</span>
+            </li>
+            <li class="tech-item" data-hover-src="./images/angular-colored.png" aria-hidden="true">
+              <img src="./images/angular.png" alt="Angular" />
+              <span>Angular</span>
             </li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-right">
-        <div class="floating-card card-1">
-          <div class="card-icon">💼</div>
-          <div class="card-title">Software Developer</div>
-          <div class="card-subtitle">Amadeus</div>
+      <section class="section-shell split-section" id="about" aria-labelledby="about-title">
+        <div class="section-kicker reveal">
+          <span>01</span>
+          <p>About</p>
         </div>
-        <div class="floating-card card-2">
-          <div class="card-icon">🎓</div>
-          <div class="card-title">MSc Software Dev</div>
-          <div class="card-subtitle">Strathclyde Uni</div>
-        </div>
-        <div class="floating-card card-3">
-          <div class="card-icon">⚡</div>
-          <div class="card-title">React • Angular</div>
-          <div class="card-subtitle">TypeScript</div>
-        </div>
-      </div>
-
-      <!-- <div class="vertical-text reveal">
-        Scroll Down
-        <div class="arrow">&#8595;</div>
-      </div> -->
-    </section>
-
-    <section id="about" class="segment">
-      <div class="about-me-segment reveal">
-        <p id="typing-effect"></p>
-        <div class="about-text">
-          <div class="about-me">
-            <div class="line"></div>
-            <p class="subheads">About Me</p>
-          </div>
-          <p id="about-me-text">
-            <span>
-              I currently work as a software developer on a white-label flight booking application used by over 80 airlines worldwide — covering everything from flight availability to servicing and payments.
-            </span>
-            <span>
-              Before moving into front-end development, I managed airline system migrations. I also have working experience on building trading platforms across different asset classes. Throughout my university years, I’ve also spent time at PwC, IBM, and BNP Paribas, where I built a mix of business, finance, and tech experience.
-            </span>
-            <span>
-              Outside of work, I enjoy finance, investing and sports, along with
-              traveling, reading, and tackling new challenges.
-            </span>
-          </p>
-          <div class="get-in-touch">
-            <img
-              src="./images/arrow-down-right-50.png"
-              alt="arrow down and right"
-            />
-            <a href="#contact">Get in touch!</a>
+        <div class="about-copy reveal">
+          <h2 id="about-title" class="typing-heading">
+            <span id="typing-effect"></span>
+          </h2>
+          <div class="body-grid">
+            <p>
+              I'm currently a software developer at Genetec in Vienna, where I'm part of the team
+              building an work management platform for the security industry. Alongside feature development and maintenance,
+              I also contribute to architecture decisions, from state management and data fetching
+              to where business logic should live.
+            </p>
+            <p>
+              Before this, I worked at Amadeus on a flight booking platform used
+              by 80+ airlines worldwide across availability, servicing, payments, and booking
+              flows, after earlier implementation and migration work in travel.
+            </p>
+            <p>
+              I also built trading platform interfaces across different asset classes, with
+              earlier experience at Adaptive, PwC, IBM, and BNP Paribas. Outside of work, I follow
+              finance, investing, and sport, and I enjoy projects where strong technical
+              execution meets real-world operational demands.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience" class="segment">
-      <div id="experience-segment" class="reveal">
-        <div class="header-container">
-          <div class="line"></div>
-          <p class="subheads">Background</p>
-        </div>
-
-        <!-- Segmented Control Toggle -->
-        <div class="segmented-control-wrapper">
-          <div class="segmented-control">
-            <button class="segment-btn active" data-tab="experience">
-              <span class="segment-icon">💼</span>
-              <span>Experience</span>
-            </button>
-            <button class="segment-btn" data-tab="education">
-              <span class="segment-icon">🎓</span>
-              <span>Education</span>
-            </button>
-            <div class="segment-slider"></div>
+      <section class="section-shell experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading reveal">
+          <div class="section-kicker">
+            <span>02</span>
+            <p>Experience</p>
           </div>
         </div>
 
-        <!-- Experience Content -->
-        <div class="tab-content active" id="experience-content">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content glass-card">
-                <div class="timeline-header">
-                  <div>
-                    <h3>Software Developer</h3>
-                    <p class="company">Amadeus</p>
-                  </div>
-                  <span class="timeline-date">Mar 2024 - Present</span>
-                </div>
-                <p class="timeline-description">
-                  Developing and maintaining a high-performance airline booking system used by 80+ airlines globally. 
-                  Working with Angular, RxJS, Redux, Jasmine, and Karma to build scalable, user-friendly interfaces.
+        <div class="switcher reveal" role="tablist" aria-label="Background sections">
+          <button class="switcher-button active" type="button" role="tab" aria-selected="true" data-tab="experience">
+            Experience
+          </button>
+          <button class="switcher-button" type="button" role="tab" aria-selected="false" data-tab="education">
+            Education
+          </button>
+        </div>
+
+        <div class="tab-panel active" id="experience-content" role="tabpanel">
+          <div class="route-map">
+            <article class="route-stop featured reveal">
+              <div class="route-date">Feb 2026 - Present</div>
+              <div class="route-body">
+                <p class="route-location">Genetec / Vienna, Austria</p>
+                <h3>Software Developer</h3>
+                <p>
+                 Building a work management platform for the security industry at Genetec using React and TanStack Query.
+                 Responsible for application architecture, technology evaluation, and key design decisions, including state management, data-fetching strategies, and the distribution of business logic between client and server.
                 </p>
-                <div class="timeline-tags">
-                  <span>Angular</span>
-                  <span>TypeScript</span>
-                  <span>RxJS</span>
-                  <span>Redux</span>
-                </div>
               </div>
-            </div>
+            </article>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content glass-card">
-                <div class="timeline-header">
-                  <div>
-                    <h3>Implementation Engineer</h3>
-                    <p class="company">Amadeus</p>
-                  </div>
-                  <span class="timeline-date">Jul 2023 - Mar 2024</span>
-                </div>
-                <p class="timeline-description">
-                  Implemented airline booking systems and related services for airlines worldwide. Managed system migrations and technical integrations.
+            <article class="route-stop reveal">
+              <div class="route-date">Mar 2024 - Dec 2025</div>
+              <div class="route-body">
+                <p class="route-location">Amadeus</p>
+                <h3>Software Developer</h3>
+                <p>
+                  Developed and maintained a high-performance airline booking system used
+                  by 80+ airlines globally, working across Angular, RxJS, Redux, Jasmine,
+                  and Karma.
                 </p>
-                <div class="timeline-tags">
-                  <span>System Integration</span>
-                  <span>Technical Implementation</span>
-                </div>
               </div>
-            </div>
+            </article>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content glass-card">
-                <div class="timeline-header">
-                  <div>
-                    <h3>Frontend Developer</h3>
-                    <p class="company">Adaptive Financial Consulting</p>
-                  </div>
-                  <span class="timeline-date">Sep 2022 - Mar 2023</span>
-                </div>
-                <p class="timeline-description">
-                  Built a stock trading platform using React and the Scrum framework. Developed an internal React component library for consistent UI across products.
+            <article class="route-stop reveal">
+              <div class="route-date">Jul 2023 - Mar 2024</div>
+              <div class="route-body">
+                <p class="route-location">Amadeus</p>
+                <h3>Implementation Engineer</h3>
+                <p>
+                  Implemented airline booking systems and related services for airlines
+                  worldwide, including technical integrations and migration work.
                 </p>
-                <div class="timeline-tags">
-                  <span>React</span>
-                  <span>Component Library</span>
-                  <span>Finance</span>
-                </div>
               </div>
-            </div>
+            </article>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content glass-card">
-                <div class="timeline-header">
-                  <div>
-                    <h3>Business Analyst</h3>
-                    <p class="company">IBM</p>
-                  </div>
-                  <span class="timeline-date">Aug 2019 - Aug 2020</span>
-                </div>
-                <p class="timeline-description">
-                  Worked on international projects with teams from the US, Brazil, and Europe. Managed reporting, led daily scrum meetings, and prepared reports using SQL.
+            <article class="route-stop reveal">
+              <div class="route-date">Sep 2022 - Mar 2023</div>
+              <div class="route-body">
+                <p class="route-location">Adaptive Financial Consulting</p>
+                <h3>Frontend Developer</h3>
+                <p>
+                  Built stock trading platform features with React and contributed to an
+                  internal component library for consistent product UI.
                 </p>
-                <div class="timeline-tags">
-                  <span>Project Management</span>
-                  <span>SQL</span>
-                  <span>Agile</span>
-                </div>
               </div>
-            </div>
+            </article>
+
+            <article class="route-stop reveal">
+              <div class="route-date">Aug 2019 - Aug 2020</div>
+              <div class="route-body">
+                <p class="route-location">IBM</p>
+                <h3>Business Analyst</h3>
+                <p>
+                  Worked on international projects with distributed teams, managed
+                  reporting, facilitated daily scrum meetings, and prepared SQL-backed
+                  reports.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
 
-        <!-- Education Content -->
-        <div class="tab-content" id="education-content">
-          <div class="education-grid-new">
-            <!-- Education Section -->
-            <div class="education-section">
-              <div class="education-card-new glass-card">
-                <div class="education-details">
-                  <h3>Master's in Software Development</h3>
-                  <p class="education-school">University of Strathclyde</p>
-                  <div class="education-meta">
-                    <span class="education-location">📍 Glasgow, Scotland</span>
-                    <span class="education-dates">2021 - 2022</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="education-card-new glass-card">
-                <div class="education-details">
-                  <h3>Bachelor's in Business Management</h3>
-                  <p class="education-school">Glasgow Caledonian University</p>
-                  <div class="education-meta">
-                    <span class="education-location">📍 Glasgow, Scotland</span>
-                    <span class="education-dates">2017 - 2021</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Divider -->
-            <div class="education-divider"></div>
-
-            <!-- Certifications Section -->
-            <div class="certifications-card glass-card">
-              <div class="cert-header">
-                <h3>Certifications</h3>
-              </div>
-              <div class="cert-list">
-                <div class="cert-item">
-                  <span class="cert-dot"></span>
-                  <span>Google Python Certification</span>
-                </div>
-                <div class="cert-item">
-                  <span class="cert-dot"></span>
-                  <span>IBM Agile Explorer</span>
-                </div>
-              </div>
-            </div>
+        <div class="tab-panel" id="education-content" role="tabpanel">
+          <div class="education-board reveal">
+            <article>
+              <span>2021 - 2022</span>
+              <h3>Master's in Software Development</h3>
+              <p>University of Strathclyde / Glasgow, Scotland</p>
+            </article>
+            <article>
+              <span>2017 - 2021</span>
+              <h3>Bachelor's in Business Management</h3>
+              <p>Glasgow Caledonian University / Glasgow, Scotland</p>
+            </article>
+            <article>
+              <span>Certifications</span>
+              <p id="certifications"> Google Python Certification<br> IBM Agile Explorer </p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects" class="segment">
-      <div class="projects-container reveal">
-        <div class="header-container">
-          <div class="line"></div>
-          <p class="subheads">Projects</p>
+      <section class="section-shell projects-section" id="projects" aria-label="Projects">
+        <div class="section-heading reveal">
+          <div class="section-kicker">
+            <span>03</span>
+            <p>Projects</p>
+          </div>
         </div>
-        <div class="projects-grid">
-          <article class="project-card glass-card">
-            <div class="project-image">
-              <img src="./images/stock-graph-icon.png" alt="Moving Averages Calculator" />
-              <div class="project-overlay">
-                <a href="https://github.com/AdoRosip/MovingAveragesCalculator" target="_blank" rel="noopener" class="project-link">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
-                  </svg>
-                </a>
-              </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <img src="./images/stock-graph-icon.png" alt="" />
             </div>
-            <div class="project-content">
+            <div class="project-copy">
+              <p class="meta-label">Python / Flask / Data</p>
               <h3>Moving Averages Calculator</h3>
-              <p>Flask web app for stock analysis using Moving Averages, Bollinger Bands, and technical indicators. Provides visual analysis and insights for traders.</p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>Data Viz</span>
-              </div>
+              <p>
+                Stock analysis app using moving averages, Bollinger Bands, and
+                technical indicators for visual trading research.
+              </p>
+              <a href="https://github.com/AdoRosip/MovingAveragesCalculator" target="_blank" rel="noopener">
+                View repository
+              </a>
             </div>
           </article>
 
-          <article class="project-card glass-card">
-            <div class="project-image">
-              <img src="./images/icons8-stock-96.png" alt="Stock Tracker" />
-              <div class="project-overlay">
-                <a href="https://github.com/AdoRosip/react-stock-tracker" target="_blank" rel="noopener" class="project-link">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
-                  </svg>
-                </a>
-                <a href="https://adorosip.github.io/react-stock-tracker/" target="_blank" rel="noopener" class="project-link">
-                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                  </svg>
-                </a>
-              </div>
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <img src="./images/icons8-stock-96.png" alt="" />
             </div>
-            <div class="project-content">
+            <div class="project-copy">
+              <p class="meta-label">React / TypeScript / API</p>
               <h3>Stock Tracker</h3>
-              <p>Modern React application for tracking stocks with real-time data, company overviews, historical charts, and financial metrics. Built with TypeScript and Tailwind CSS.</p>
-              <div class="project-tech">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Tailwind</span>
-                <span>API Integration</span>
+              <p>
+                Modern stock tracking interface with company views, historical charts,
+                metrics, and API-driven market data.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/AdoRosip/react-stock-tracker" target="_blank" rel="noopener">
+                  Repository
+                </a>
+                <a href="https://adorosip.github.io/react-stock-tracker/" target="_blank" rel="noopener">
+                  Live app
+                </a>
               </div>
             </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="segment">
-      <div id="contact-segment" class="reveal">
-        <div class="form-section"></div>
-        <div class="contact-info-section"></div>
-        <div class="contact-header">
-          <h2>Get in touch!</h2>
-          <img src="./images/finger.png" alt="finger poiting down" />
-        </div>
-        <form id="contactForm" action="https://formspree.io/f/xbldwrzj" method="POST" class="contact-form">
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Send message</button>
-        </form>
-        <div class="contacts">
-          <div data-hover-src="./images/email-gif.gif">
-            <img class="icons-bg" src="./images/email.png" alt="email" />
-            <span>adrian.rosipal98@gmail.com</span>
-          </div>
+      <section class="section-shell contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-card reveal">
           <div>
-            <img class="icons-bg" src="./images/phone.png" alt="phone number" />
-            <span>+33 6 28 24 94 61</span>
+            <div class="section-kicker">
+              <span>04</span>
+              <p>Contact</p>
+            </div>
+            <h2 id="contact-title">Hit me up!</h2>
+            <p>Contact me and I will get back to you as soon as I can.</p>
+            <div class="contact-methods" aria-label="Contact methods">
+              <a href="mailto:adrian.rosipal98@gmail.com">adrian.rosipal98@gmail.com</a>
+              <a href="tel:+436643975996">+43 6643975996</a>
+              <a href="https://www.linkedin.com/in/adrian-rosipal-606567172/" target="_blank" rel="noopener">
+                LinkedIn
+              </a>
+              <button id="resume" type="button">Download resume</button>
+            </div>
           </div>
-          <div id="resume">
-            <img class="icons-bg" src="./images/download-icon.png" alt="resume" />
-            <span>Resume</span>
-          </div>
-          <div id="linkedin">
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/adrian-rosipal-606567172/" rel="noopener noreferrer"
-              ><img 
-              class="icons-bg"
-              src="./images/linkedin-icon.png" alt="linked in" />
-            </a>
-            <span id="test">LinkedIn</span>
-          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/xbldwrzj" method="POST" class="contact-form">
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="button primary" type="submit">Send message</button>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </body>
 </html>
